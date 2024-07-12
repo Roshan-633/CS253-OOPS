@@ -184,7 +184,6 @@ void Car::Show_duedate()
 {
     cout << "The due date for this car is:\t" << due_date << '\n';
 }
-
 void Car::Display()
 {
     cout << "Company of the Car:\t" << Company << '\n';
@@ -192,7 +191,6 @@ void Car::Display()
     cout << "Registration Number:\t" << regNo << '\n';
     cout << "Condition of the Car:\t" << Condition << "\n\n";
 }
-
 bool Car::operator<(const Car &c) const { return ((this->regNo) < c.regNo); }
 void Car::Rented()
 {
@@ -313,7 +311,6 @@ int User::Calculate_fine(int today = TODAY)
     }
     return fine;
 }
-
 void User::Return_cars(int today = TODAY)
 {
     if (this->ID == manager_id)
@@ -331,12 +328,10 @@ void User::Return_cars(int today = TODAY)
     rented_cars.clear();
     cout << "Returned successfully.\n";
 }
-
 bool User::operator==(const User &u)
 {
     return (this->ID == u.ID) && (this->password == u.password);
 }
-
 bool User::Check_password(string pwd) { return password == pwd; }
 void User::Show_cars()
 {
@@ -351,7 +346,6 @@ void User::Show_cars()
         c.Display();
     }
 }
-
 void User::Rent_Car()
 {
     if (max_cars && rented_cars.size() == max_cars)
@@ -367,7 +361,6 @@ void User::Rent_Car()
         rented_cars.insert(CAR_DB.Search(regNo));
     }
 }
-
 void User::Clear_fine_amount(int today = TODAY)
 {
     cout << "\nReturning the cars which are due...\n\n";
@@ -385,14 +378,12 @@ void User::Clear_fine_amount(int today = TODAY)
         rented_cars.erase(c);
     }
 }
-
 void User::Logout()
 {
     logged_in = &dummy;
     TODAY++;
     cout << "\nLogged out successfully!\n";
 }
-
 void User::Display()
 {
     cout << "\n";
@@ -400,7 +391,6 @@ void User::Display()
     cout << "\nID of the user:\t\t" << ID;
     cout << "\n";
 }
-
 void User::Help()
 {
     cout << "\n\nEnter:\n";
@@ -423,7 +413,6 @@ void User::Help()
     }
     cout << "\n\n";
 }
-
 void User::Show_dues()
 {
     bool due = false;
@@ -446,7 +435,6 @@ Employee::Employee(string n, string id, string pwd)
     type = "e";
     rent_days = 25;
 }
-
 void Employee::Help()
 {
     cout << "\nEnter:\n";
@@ -509,7 +497,6 @@ Customer::Customer(string n, string id, string p)
     fineamt = 10, type = "c";
     rent_days = 25;
 }
-
 void Customer::Help()
 {
     cout << "\nEnter:\n";
@@ -572,7 +559,6 @@ Manager::Manager()
     type = "m";
     USER_DB.Add(this);
 }
-
 void Manager::Add_Car()
 {
     string c, m, regNo, con;
@@ -591,7 +577,6 @@ void Manager::Add_Car()
     CAR_DB.Add(Car(c, m, regNo, "good"));
     cout << "Car added to the store successfully!\n";
 }
-
 void Manager::Add_User()
 {
     string n, i, p, t;
@@ -630,7 +615,6 @@ void Manager::Add_User()
         return;
     }
 }
-
 void Manager::Delete_Car()
 {
     string regNo;
@@ -648,7 +632,6 @@ void Manager::Delete_Car()
     }
     cout << "\n";
 }
-
 void Manager::Delete_User()
 {
     string id;
@@ -674,7 +657,6 @@ void Manager::Delete_User()
     }
     cout << "\n";
 }
-
 void Manager::Check_rent()
 {
     cout << "\nEnter the reg number of the car: ";
@@ -691,7 +673,6 @@ void Manager::Check_rent()
                 "entered.\n";
     }
 }
-
 void Manager::Change_day()
 {
     cout << "\nEnter the new day (integer): ";
@@ -711,7 +692,6 @@ void Manager::Change_day()
         TODAY = t;
     }
 }
-
 void Manager::User_Cars()
 {
     cout << "\nEnter the ID of the user: ";
@@ -728,7 +708,6 @@ void Manager::User_Cars()
         cout << "User with this ID does not exist.\n";
     }
 }
-
 void Manager::Help()
 {
     cout << "\nEnter:\n";
